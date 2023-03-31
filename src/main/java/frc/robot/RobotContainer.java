@@ -61,7 +61,7 @@ public class RobotContainer {
         ArcadeDrive defaultDriveCommand = new ArcadeDrive(driveBase,
                 () -> controls.getLeftDriveX(),
                 () -> controls.getLeftDriveY(),
-                () -> controls.getRightDriveX(),
+                () -> -controls.getRightDriveX(),
                 () -> controls.getRightDriveY());
 
         //controller commands
@@ -69,8 +69,8 @@ public class RobotContainer {
         IntakeOut intakeOutCommand = new IntakeOut(intake);
 
         //bounding commands
-        controls.intakeIn().onTrue(intakeInCommand);
-        controls.intakeOut().onTrue(intakeOutCommand);
+        controls.intakeIn().whileTrue(intakeInCommand);
+        controls.intakeOut().whileTrue(intakeOutCommand);
 
         //default commands
         driveBase.setDefaultCommand(defaultDriveCommand);
