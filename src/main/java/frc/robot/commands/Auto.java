@@ -8,7 +8,7 @@ import frc.robot.subsystems.intake.Intake;
 public class Auto extends ParallelCommandGroup {
 
     public Auto(DriveBase drive, Intake intake) {
-        addCommands(new DriveStraight(drive, 0.25));
+        addCommands(new DriveStraight(drive, 1).withTimeout(1));
         addCommands(new IntakeIn(intake));
     }
 
