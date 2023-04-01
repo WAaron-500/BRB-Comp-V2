@@ -32,8 +32,8 @@ public class XeniteControls implements UserControls {
     }
 
     @Override
-    public Trigger intakeIn() {
-        return xanderController.rightTrigger(0.4);
+    public double intakeIn() {
+        return xanderController.getRightTriggerAxis();
         
         //xanderController.getRightTriggerAxis();
     }

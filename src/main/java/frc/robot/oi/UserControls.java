@@ -19,11 +19,11 @@ public interface UserControls {
         return 0.0;
     }
 
-    public default Trigger intakeIn() {
-        return new Trigger();
+    public default double intakeIn() {
+        return 0.0;
     }
 
     public default Trigger intakeOut() {
-        return new Trigger();
+        return null;
     }
 }

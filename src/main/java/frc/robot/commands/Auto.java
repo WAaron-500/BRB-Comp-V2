@@ -9,7 +9,7 @@ public class Auto extends ParallelCommandGroup {
 
     public Auto(DriveBase drive, Intake intake) {
         addCommands(new DriveStraight(drive, 1).withTimeout(1));
-        addCommands(new IntakeIn(intake));
+        addCommands(new IntakeIn(intake, () ->1.0));
     }
 
 }

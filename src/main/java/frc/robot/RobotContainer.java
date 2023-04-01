@@ -65,15 +65,15 @@ public class RobotContainer {
                 () -> controls.getRightDriveY());
 
         //controller commands
-        IntakeIn intakeInCommand = new IntakeIn(intake);
+        IntakeIn intakeInCommand = new IntakeIn(intake, () -> controls.intakeIn());
         IntakeOut intakeOutCommand = new IntakeOut(intake);
 
         //bounding commands
-        controls.intakeIn().whileTrue(intakeInCommand);
         controls.intakeOut().whileTrue(intakeOutCommand);
 
         //default commands
         driveBase.setDefaultCommand(defaultDriveCommand);
+        intake.setDefaultCommand(intakeInCommand);
     }
 
     /**
