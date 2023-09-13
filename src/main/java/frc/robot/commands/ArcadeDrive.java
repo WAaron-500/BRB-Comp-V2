@@ -51,7 +51,7 @@ public class ArcadeDrive extends CommandBase {
         double forwardSpeed;
         double turnSpeed;
         forwardSpeed = -Math.pow(leftYValue, 2) * Math.copySign(mult, leftYValue);
-        turnSpeed = Math.pow(rightXValue, 2) * Math.copySign(mult, rightXValue);
+        turnSpeed = Math.pow(rightXValue, 4) * Math.copySign(mult, rightXValue);
 
         drive.driveBase.curvatureDrive(forwardSpeed, turnSpeed, true);
         // drive.driveBase.arcadeDrive(-leftSpeed, rightSpeed);
