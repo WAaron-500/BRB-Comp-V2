@@ -26,4 +26,12 @@ public interface UserControls {
     public default Trigger intakeOut() {
         return null;
     }
+
+    public default Trigger dPadUp(){
+        return null;
+    }
+
+    public default Trigger dPadDown(){
+        return null;
+    }
 }

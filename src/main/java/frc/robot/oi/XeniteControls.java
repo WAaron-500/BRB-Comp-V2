@@ -34,8 +34,6 @@ public class XeniteControls implements UserControls {
     @Override
     public double intakeIn() {
         return xanderController.getRightTriggerAxis();
-        
-        //xanderController.getRightTriggerAxis();
     }
 
     @Override
@@ -43,14 +41,13 @@ public class XeniteControls implements UserControls {
         return xanderController.leftTrigger(0.4);
     }
 
+    @Override
+    public Trigger dPadUp(){
+        return xanderController.pov(0);
+    }
 
-    // @Override
-    // public Trigger getIntakeRunInButton() {
-    //     return new Trigger(() -> rightDriverJoystick.getRawButton(3));
-    // }
-
-    // @Override
-    // public Trigger getIntakeRunOutButton() {
-    //     return new Trigger(() -> leftDriverJoystick.getRawButton(3));
-    // }
+    @Override
+    public Trigger dPadDown(){
+        return xanderController.pov(180);
+    }
 }

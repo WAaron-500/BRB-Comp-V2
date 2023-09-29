@@ -11,6 +11,8 @@ import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.Auto;
 import frc.robot.commands.intakeCommands.IntakeIn;
 import frc.robot.commands.intakeCommands.IntakeOut;
+import frc.robot.commands.pivotCommands.PivotIn;
+import frc.robot.commands.pivotCommands.PivotOut;
 import frc.robot.oi.UserControls;
 import frc.robot.oi.XeniteControls;
 import frc.robot.subsystems.drivetrain.DriveBase;
@@ -19,6 +21,8 @@ import frc.robot.subsystems.drivetrain.DriveIOBRB;
 import frc.robot.subsystems.intake.Intake;
 import frc.robot.subsystems.intake.V2IntakeIO;
 import frc.robot.subsystems.intake.intakeIO;
+import frc.robot.subsystems.pivot.Pivot;
+import frc.robot.subsystems.pivot.otherPivotIO;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -30,6 +34,7 @@ public class RobotContainer {
     // The robot's subsystems and commands are defined here...
     private DriveBase driveBase;
     private Intake intake;
+    private Pivot pivot;
 
     /** The container for the robot. Contains subsystems, OI devices, and commands. */
     public RobotContainer() {
@@ -41,6 +46,7 @@ public class RobotContainer {
     private void configureSubsystems() {
         this.driveBase = new DriveBase(new DriveIOBRB());
         this.intake = new Intake(new V2IntakeIO());
+        this.pivot = new Pivot(new otherPivotIO());
 
         //fail safes because they are pretty
         driveBase = driveBase != null ? driveBase : new DriveBase(new DriveIO() {
@@ -67,9 +73,13 @@ public class RobotContainer {
         //controller commands
         IntakeIn intakeInCommand = new IntakeIn(intake, () -> controls.intakeIn());
         IntakeOut intakeOutCommand = new IntakeOut(intake);
+        PivotIn pivotInCommand = new PivotIn(pivot, () -> 1.0);
+        PivotOut pivotOutCommand = new PivotOut(pivot);
 
         //bounding commands
         controls.intakeOut().whileTrue(intakeOutCommand);
+        controls.dPadUp().whileTrue(pivotInCommand);
+        controls.dPadDown().whileTrue(pivotOutCommand);
 
         //default commands
         driveBase.setDefaultCommand(defaultDriveCommand);

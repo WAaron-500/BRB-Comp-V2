@@ -1,5 +1,7 @@
 package frc.robot.subsystems.intake;
 
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -7,13 +9,11 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Intake extends SubsystemBase{
 
     private final intakeIO intakeIO;
-    private final Spark intakeMotor1;
-    private final Talon intakeMotor2;
+    private final TalonSRX intakeMotor;
 
     public Intake(intakeIO intakeIO) {
         this.intakeIO = intakeIO;
-        this.intakeMotor1 = intakeIO.getIntakeMotor1();
-        this.intakeMotor2 = intakeIO.getIntakeMotor2();
+        this.intakeMotor = intakeIO.getIntakeMotor();
     }
 
     public void IntakeIn(double speed) {
