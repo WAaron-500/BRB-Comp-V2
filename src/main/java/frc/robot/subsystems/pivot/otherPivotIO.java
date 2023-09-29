@@ -12,7 +12,7 @@ public class otherPivotIO implements pivotIO {
     }
 
     @Override
-    public WPI_TalonSRX getPivotMotor() {
+    public WPI_TalonSRX getPivot() {
         return pivotMotor;
     }
 

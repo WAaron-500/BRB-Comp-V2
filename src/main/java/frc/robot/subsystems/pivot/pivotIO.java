@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.motorcontrol.Spark;
 
 public interface pivotIO {
 
-    public default void setIntake(double setSpeed){}
-    public default void stopIntake(){}
-    public default WPI_TalonSRX getIntakeMotor() {
+    public default void setPivot(double setSpeed){}
+    public default void stopPivot(){}
+    public default WPI_TalonSRX getPivot() {
         return null;
     }
 }
