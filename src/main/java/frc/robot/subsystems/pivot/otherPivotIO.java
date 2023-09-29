@@ -18,11 +18,11 @@ public class otherPivotIO implements pivotIO {
 
     @Override
     public void setPivot(double setSpeed){
-        pivotMotor.set(TalonSRXControlMode.PercentOutput ,setSpeed);
+        pivotMotor.set(setSpeed);;
     }
 
     @Override
     public void stopPivot() {
-        pivotMotor.set(TalonSRXControlMode.PercentOutput, 0);
+        pivotMotor.set(0);;
     }
 }

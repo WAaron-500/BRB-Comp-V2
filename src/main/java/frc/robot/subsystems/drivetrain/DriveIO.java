@@ -3,16 +3,17 @@ package frc.robot.subsystems.drivetrain;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
 
 public interface DriveIO {
 
-    public default WPI_TalonSRX getLeftLeader() {
+    public default MotorControllerGroup getLeftLeader() {
         return null;
     }
 
-    public default WPI_TalonSRX getRightLeader() {
+    public default MotorControllerGroup getRightLeader() {
         return null;
     }
 

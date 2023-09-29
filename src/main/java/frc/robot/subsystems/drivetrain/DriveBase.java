@@ -5,14 +5,15 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.math.kinematics.DifferentialDriveWheelSpeeds;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveBase extends SubsystemBase {
 
     private final DriveIO driveIO;
-    private final WPI_TalonSRX left;
-    private final WPI_TalonSRX right;
+    private final MotorControllerGroup left;
+    private final MotorControllerGroup right;
 
     public DifferentialDrive driveBase;
 

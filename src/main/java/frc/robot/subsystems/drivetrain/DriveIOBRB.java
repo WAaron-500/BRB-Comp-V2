@@ -6,8 +6,7 @@ import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-import edu.wpi.first.wpilibj.motorcontrol.Spark;
-import edu.wpi.first.wpilibj.motorcontrol.Talon;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 
 public class DriveIOBRB implements DriveIO {
 
@@ -16,13 +15,8 @@ public class DriveIOBRB implements DriveIO {
     public WPI_TalonSRX leftSlave;
     public WPI_TalonSRX rightSlave;
 
-
-    // public WPI_TalonSRX leftLeader;
-    // public WPI_TalonSRX rightLeader;
-    // public WPI_TalonSRX leftFollower1;
-    // public WPI_TalonSRX rightFollower1;
-    // public WPI_TalonSRX leftFollower2;
-    // public WPI_TalonSRX rightFollower2;
+    public MotorControllerGroup left;
+    public MotorControllerGroup right;
 
     public DriveIOBRB() {
         this.leftLeader = new WPI_TalonSRX(1);
@@ -30,21 +24,24 @@ public class DriveIOBRB implements DriveIO {
         this.rightLeader = new WPI_TalonSRX(2);
         this.rightSlave = new WPI_TalonSRX(4);
 
-        rightSlave.follow(rightLeader);
-        leftSlave.follow(leftLeader);
+        // rightSlave.follow(rightLeader);
+        // leftSlave.follow(leftLeader);
 
-        leftLeader.setInverted(false);
-        rightLeader.setInverted(true);
+        this.left = new MotorControllerGroup(leftLeader, leftSlave);
+        this.right = new MotorControllerGroup(rightLeader, rightSlave);
+
+        // leftLeader.setInverted(false);
+        // rightLeader.setInverted(true);
     }
 
     @Override
-    public WPI_TalonSRX getLeftLeader() {
-        return leftLeader;
+    public MotorControllerGroup getLeftLeader() {
+        return left;
     }
 
     @Override
-    public WPI_TalonSRX getRightLeader() {
-        return rightLeader;
+    public MotorControllerGroup getRightLeader() {
+        return right;
     }
 
     @Override
