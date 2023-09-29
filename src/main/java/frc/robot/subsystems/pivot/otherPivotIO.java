@@ -23,6 +23,6 @@ public class otherPivotIO implements pivotIO {
 
     @Override
     public void stopPivot() {
-        pivotMotor.set(0);;
+        pivotMotor.set(0);
     }
 }
