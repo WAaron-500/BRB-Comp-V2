@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.subsystems.drivetrain.DriveBase;
 
 public class DriveStraight extends CommandBase {
@@ -20,7 +21,8 @@ public class DriveStraight extends CommandBase {
 
     @Override
     public void execute() {
-        drive.driveBase.curvatureDrive(speed, 0, false);
+        // drive.driveBase.curvatureDrive(speed, 0, false);
+        drive.driveSpeed(speed*Constants.DriveWeights.leftDriveWeight.get(), speed*Constants.DriveWeights.rightDriveWeight.get());
     }
 
     @Override
